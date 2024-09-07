@@ -18,22 +18,24 @@ try {
 
     // Expéditeur et destinataire
     $mail->setFrom('rachid-meziyane@irrinat.com', 'IRRINAT');
-    $mail->addAddress('rachid-meziyane@irrinat.com', 'Client'); // Remplacez par l'adresse du destinataire
+    $mail->addAddress('rachid-meziyane@irrinat.com', 'DG'); // Adresse du destinataire
+    $mail->addAddress('irrinat-rachid@outlook.com', 'DG'); // Autre adresse du destinataire
 
     // Contenu
     $mail->isHTML(true);
-    $mail->Subject = 'Nouveau message de contact';
-    $mail->Body    = '<h3>Contact Form Submission</h3>' .
-                      '<p><strong>Nom:</strong> ' . htmlspecialchars($_POST['name']) . '</p>' .
-                      '<p><strong>Email:</strong> ' . htmlspecialchars($_POST['email']) . '</p>' .
-                      '<p><strong>Message:</strong><br>' . nl2br(htmlspecialchars($_POST['message'])) . '</p>';
-    $mail->AltBody = 'Nom: ' . htmlspecialchars($_POST['name']) . '\n' .
-                     'Email: ' . htmlspecialchars($_POST['email']) . '\n' .
-                     'Message: ' . htmlspecialchars($_POST['message']);
+    $mail->Subject = 'Nouveau Prospect Irrinat.com';
+    $mail->Body    = '<h3>Informations prospect</h3>' .
+                     '<p><strong>Nom:</strong> ' . htmlspecialchars($_POST['name']) . '</p>' .
+                     '<p><strong>Email:</strong> ' . htmlspecialchars($_POST['email']) . '</p>' .
+                     '<p><strong>Message:</strong><br>' . nl2br(htmlspecialchars($_POST['message'])) . '</p>';
 
+    // Envoyer l'email
     $mail->send();
-    echo 'L\'email a été envoyé avec succès.';
+    // Redirection ou affichage du succès
+    header('Location: success.php'); // Remplacez par le nom du fichier où vous voulez rediriger après l'envoi
+    exit();
 } catch (Exception $e) {
-    echo 'Le message n\'a pas pu être envoyé. Mailer Error: ', $mail->ErrorInfo;
+    // Gestion des erreurs
+    echo "L'email n'a pas pu être envoyé. Erreur : ", $mail->ErrorInfo;
 }
 ?>
