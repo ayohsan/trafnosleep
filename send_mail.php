@@ -18,8 +18,8 @@ try {
 
     // Expéditeur et destinataire
     $mail->setFrom('rachid-meziyane@irrinat.com', 'IRRINAT');
-    $mail->addAddress('rachid-meziyane@irrinat.com', 'DG'); // Adresse du destinataire
-    $mail->addAddress('irrinat-rachid@outlook.com', 'DG'); // Autre adresse du destinataire
+    $mail->addAddress('ayohsan@live.fr', 'DG'); // Adresse du destinataire
+    
 
     // Contenu
     $mail->isHTML(true);
