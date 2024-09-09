@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
-const port = 3000;
+const port = 3001;
 const sendMail = require('./send-mail'); // Importer le fichier send_mail.js
 
 // Middleware pour parser les requêtes POST
@@ -27,6 +27,6 @@ app.post('/send-mail', (req, res) => {
 });
 
 // Démarrage du serveur
-app.listen(port, () => {
+app.listen(port, '0.0.0.0',() => {
   console.log(`Serveur à l'écoute sur http://localhost:${port}`);
 });
