@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'trafnosleep')));
 
 // Route pour le formulaire de contact
-app.post('/send_email', (req, res) => {
+app.post('/send_mail', (req, res) => {
   sendMail(req.body, (error, info) => {
     if (error) {
       return res.status(500).send('Erreur lors de l\'envoi de l\'email : ' + error.message);
