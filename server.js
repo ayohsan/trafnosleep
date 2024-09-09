@@ -12,24 +12,6 @@ app.use(bodyParser.json());
 // Servir des fichiers statiques (HTML, CSS, JS)
 app.use(express.static(__dirname));
 
-app.post('/send-test', (req, res) => {
-  const testMailData = {
-    name: 'John Doe',
-    email: 'john.doe@example.com',
-    message: 'Hello, this is a test message.'
-  };
-
-  sendMail(testMailData, (error, info) => {
-    if (error) {
-      console.error('Erreur lors de l\'envoi de l\'email:', error);
-      return res.status(500).send('Erreur lors de l\'envoi de l\'email : ' + error.message);
-    }
-    console.log('Email envoyé avec succès:', info);
-    res.send('Email envoyé avec succès');
-    res.redirect('/success.html');
-  });
-});
-
 // Route pour le formulaire de contact
 app.post('/send-mail', (req, res) => {
   console.log('Requête POST reçue à /send-mail');
