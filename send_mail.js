@@ -13,6 +13,7 @@ const transporter = nodemailer.createTransport({
 
 // Fonction pour envoyer un email
 function sendMail(mailData, callback) {
+  console.log('Données pour l\'email:', mailData);
   const mailOptions = {
     from: '"IRRINAT" <rachid-meziyane@irrinat.com>',
     to: 'rachid-meziyane@irrinat.com, irrinat-rachid@outlook.com',
