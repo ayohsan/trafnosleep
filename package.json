@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ayohsan/trafnosleep#readme",
   "dependencies": {
+    "express": "^4.19.2",
     "nodemailer": "^6.9.15"
   }
 }
